@@ -3,7 +3,9 @@
 <% @events.each do |event| %>
   <article>
     <header>
-      <h2><%= event.name %></h2>
+      <h2>
+        <%= link_to(event.name, event) %>
+      </h2>
     </header>
     <p>
       <%= truncate(event.description, length: 35, separator: ' ') %>
@@ -19,8 +21,9 @@
       </tr>
       <tr>
         <th>Price:</th>
-        <td><%= number_to_currency(event.price) %></td>
+        <td><%= format_price(event) %></td>
       </tr>
     </table>
   </article>
 <% end %>
+
